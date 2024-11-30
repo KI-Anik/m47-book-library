@@ -9,6 +9,7 @@ import Root from './components/Root/Root';
 import Erropage from './components/Error/Erropage';
 import Home from './components/Home/Home';
 import DashBoard from './components/DashBoard/DashBoard';
+import BookDetail from './components/BookDetail/BookDetail';
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Home></Home>
+      },
+      {
+        path: '/books/:bookId',
+        element: <BookDetail></BookDetail>
       },
       {
         path: '/dashboard',
