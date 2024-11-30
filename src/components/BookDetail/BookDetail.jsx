@@ -1,12 +1,29 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useLoaderData, useParams } from 'react-router-dom';
+import addToStoredList from '../../Utility/AddToDb';
 
 const BookDetail = () => {
     const {bookId} = useParams()
-    console.log(bookId)
+    const id = parseInt(bookId)
+
+    const data = useLoaderData()
+    // console.log(data)
+    
+    const book = data.find(b => b.bookId === id)
+    // console.log(book)
+
+    const handleMarkAsRead = (id) =>{
+        addToStoredList(id)
+    }
+
+    const {image} = book
     return (
-        <div>
-            <h1>book detail</h1>
+        <div className='my-12'>
+            <h1>book detail : {bookId}</h1>
+            <img className='w-36 ' src={image} alt="" />
+            <br />
+            <button onClick={()=>handleMarkAsRead(bookId)} className='btn btn-accent btn-outline'>Mark as Read</button>
+            <button className='btn btn-accent ml-3'>Whish List</button>
         </div>
     );
 };
