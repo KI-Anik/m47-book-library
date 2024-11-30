@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLoaderData, useParams } from 'react-router-dom';
-import addToStoredList from '../../Utility/AddToDb';
+import { addToStoredReadList } from '../../Utility/AddToDb';
 
 const BookDetail = () => {
     const {bookId} = useParams()
@@ -13,7 +13,7 @@ const BookDetail = () => {
     // console.log(book)
 
     const handleMarkAsRead = (id) =>{
-        addToStoredList(id)
+        addToStoredReadList(id)
     }
 
     const {image} = book
