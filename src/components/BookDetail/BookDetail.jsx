@@ -5,12 +5,9 @@ import { addToStoredReadList } from '../../Utility/AddToDb';
 const BookDetail = () => {
     const {bookId} = useParams()
     const id = parseInt(bookId)
-
     const data = useLoaderData()
-    // console.log(data)
     
     const book = data.find(b => b.bookId === id)
-    // console.log(book)
 
     const handleMarkAsRead = (id) =>{
         addToStoredReadList(id)
